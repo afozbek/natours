@@ -1,0 +1,22 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Improving my css Skills",
+  "main": "index.js",
+  "scripts": {
+    "comp": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afozbek/Natours.git"
+  },
+  "author": "Furkan Ozbek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afozbek/Natours/issues"
+  },
+  "homepage": "https://github.com/afozbek/Natours#readme",
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
