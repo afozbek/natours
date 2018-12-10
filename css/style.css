@@ -7,21 +7,29 @@ Dark green: #28b485
 
 */
 
-*{
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: inherit;
 }
-body{
+html {
+    /* Default browser font-size: 16px */
+    /* 1rem = 10px */
+    font-size: 62.5%;
+}
+body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box; 
 }
 
-.header{
+.header {
     height: 95vh;
     background-image: linear-gradient(
         to right bottom,
@@ -34,34 +42,34 @@ body{
     /* clip-path is just a polygon with giving coordinates */
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100% );
 }
-.logo-box{
+.header__logo-box {
     position: absolute;
-    top:40px;
-    left:40px;
+    top:4rem;
+    left:4rem;
 }
 .logo{
-    height: 35px;   
+    height: 3.5rem;   
 }
-.text-box{
+.header__text-box {
    position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
-.heading-primary{
+.heading-primary {
 color:#fff;
-margin-bottom: 60px;
+margin-bottom: 6rem;
 text-transform: uppercase;
 /* No shake! */
 backface-visibility: hidden;
 }
 
-.heading-primary-main{
+.heading-primary--main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight:  400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -72,44 +80,43 @@ backface-visibility: hidden;
     animation-dealy :3s;
     */
 }
-.heading-primary-sub{
+.heading-primary--sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight:  300;
-    letter-spacing: 17.4px;
-
+    letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out;
 }
-@keyframes moveInLeft{
+@keyframes moveInLeft {
     0%{
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
     80%{
-        transform: translateX(17px);
+        transform: translateX(1.7rem);
     }
     100%{
         opacity: 1;
         transform: translate(0)
     }
 }
-@keyframes moveInRight{
+@keyframes moveInRight {
     0%{
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     80%{
-        transform: translateX(-17px);
+        transform: translateX(-1.7rem);
     }
     100%{
         opacity: 1;
         transform: translate(0)
     }
 }
-@keyframes moveInBottom{
+@keyframes moveInBottom {
     0%{
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
     
     100%{
@@ -119,51 +126,52 @@ backface-visibility: hidden;
 }
 
 .btn:link,
-.btn:visited{
+.btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all .2s;
     position: relative;
+    font-size: 1.6rem
 }
-.btn:hover{
+.btn:hover {
     /* Butonu yukarı kaldırır 3 px */
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
 }
-.btn:active{
+.btn:active {
     /* Left click tıklanmaya basıldığında */
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
-.btn-white{
+.btn--white {
     background-color: #fff;
     color:#777;
 }
 
-.btn::after{
+.btn::after {
     content: "";
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
     transition: all .4s;
 }
-.btn-white::after{
+.btn--white::after {
     background-color: #fff;
 }
 
-.btn:hover::after{
+.btn:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
 }
-.btn-animated{
+.btn--animated {
     animation: moveInBottom .5s ease-out .75s;
     /* Apply the styles before the animation starts!! */
     animation-fill-mode: backwards;
