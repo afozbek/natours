@@ -1,4 +1,6 @@
 .card {
+
+    //FUNCTIONALITY
     perspective: 150rem;
     -moz-perspective: 150rem;
     position: relative;
@@ -6,10 +8,7 @@
 
 
     &__side {
-        color: #fff;
-        font-size: 2rem;
-
-        height: 50rem;
+        height: 48rem;
         transition: all .8s ease;
 
         position: absolute;
@@ -18,6 +17,7 @@
         width: 100%;
         backface-visibility: hidden;
         border-radius: 3px;
+        overflow: hidden;
         box-shadow: $box-shadow;
 
         &--front {
@@ -28,13 +28,79 @@
             &-1 {
                 background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
             }
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
         }
     }
     
      &:hover &__side--front  {
-         transform: rotateY(180deg);
+         transform: rotateY(-180deg);
      }
      &:hover &__side--back  {
         transform: rotateY(0);
+    }
+    //FRONT SIDE STYLING
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        -webkit-clp-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+            url(../images/nat-5.jpg);
+        }
+        &--2 {
+            background-image: url(../images/nat-5.img);
+        }
+        &--3 {
+            background-image: url(../images/nat-5.img);
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: $color-white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%;
+    }
+
+    &__heading-span {
+        padding: 0.9rem 1rem;
+        -webkit-box-decoration-break: clone;
+        &--1 {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($color-secondary-light, .85),
+                rgba($color-secondary-dark, .85)); 
+        }
+    }
+
+    &__details {
+        padding: 3 rem;
+        ul {        
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+        }
     }
 }
