@@ -46,6 +46,7 @@
         backface-visibility: hidden; /*Because of the corner shaking*/
     }
 
+    //hover yapılınca verdiğimiz opacity si 0 olan caption yukarı çıkar
     &:hover &__caption {
         opacity: 1;
         transform: translate(-50%, -50%);
