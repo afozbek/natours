@@ -1,6 +1,8 @@
 
 .btn {
-
+    
+    //<Button> element dont have these pseudo classes(link, visited)
+    &,
     &:link,
     &:visited  {
         text-transform: uppercase;
@@ -10,9 +12,13 @@
         border-radius: 10rem;
         transition: all .2s;
         position: relative;
-        font-size: $default-font-size
+        font-size: $default-font-size;
+
+        //Change for the <button> element
+        border:none;
+        cursor: pointer;
     }
-    &:hover {
+    &:hover{
         /* Butonu yukarı kaldırır 3 px */
         transform: translateY(-3px);
         box-shadow: 0 1rem 2rem rgba($color-black,.2);
@@ -21,8 +27,10 @@
             opacity: 0;
         }
     }
-    &:active {
+    &:active,
+    &:focus {
         /* Left click tıklanmaya basıldığında */
+        outline: none;
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black,.2);
     }
