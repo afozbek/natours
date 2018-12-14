@@ -6,6 +6,10 @@
     left:0;
     background-color: rgba($color-black, .8);
     z-index: 4000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
     
     &__content {
         @include absolute_center;
@@ -16,6 +20,9 @@
         border-radius: 3px;
         display: table; //same height with all child table cells
         overflow: hidden;
+        opacity: 0;
+        transform: translate(-50%,-50%) scale(.25);
+        transition: all .5s .2s;
 
     }
 
@@ -31,6 +38,7 @@
         display: table-cell;
         vertical-align: middle; //this comes with table cell
         padding: 3rem 5rem;
+        // position: relative;
     }
     &__image {
         display: block;
@@ -52,4 +60,31 @@
         
         hyphens: auto; //Right now not working
     }
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            color: $color-grey-dark;
+            position: absolute;
+            top:2.5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 0.6;
+        }
+        &:hover {
+            color: $color-primary;
+        }
+    }
 }
+    
