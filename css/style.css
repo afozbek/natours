@@ -27,13 +27,16 @@ html {
   /* Default browser font-size: 16px */
   /* 1rem = 10px */
   font-size: 62.5%; }
+  @media (max-width: 112.5em) {
+    html {
+      font-size: 50.5%; } }
   @media (max-width: 75em) {
     html {
       font-size: 56.25%; } }
   @media (max-width: 56.25em) {
     html {
       font-size: 50%; } }
-  @media (min-width: 112.5em) {
+  @media (min-width: 112.6em) {
     html {
       font-size: 75%; } }
 
@@ -457,12 +460,17 @@ body {
     width: 15rem;
     height: 15rem;
     float: left;
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
-    position: relative; }
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%; }
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      .story__shape {
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        border-radius: none; } }
     @media (max-width: 37.5em) {
       .story__shape {
         transform: translateX(-3rem) skewX(0); } }
@@ -604,11 +612,16 @@ body {
   z-index: 4000;
   opacity: 0;
   visibility: hidden;
-  transition: all .3s .2s; }
+  transition: all .3s; }
   @media (max-width: 56.25em) {
     .popup {
       width: 100%;
       height: 100%; } }
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    .popup {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background-color: #000; } }
   .popup__content {
     position: absolute;
     top: 50%;
@@ -621,7 +634,7 @@ body {
     display: table;
     overflow: hidden;
     opacity: 0;
-    transform: translate(0) scale(0.25);
+    transform: translate(-50%, -50%) scale(0.25);
     transition: all .5s .2s; }
     @media (max-width: 56.25em) {
       .popup__content {
@@ -691,14 +704,20 @@ body {
     color: #55c57a; }
 
 .header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(75, 182, 111, 0.8)), url(../images/hero.jpg);
+  height: 85vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(75, 182, 111, 0.8)), url(../images/hero-small.jpg);
   background-size: cover;
   background-position: top;
   position: relative;
-  /* clip-path is just a polygon with giving coordinates */
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  /* clip-path is just a polygon with giving coordinates */ }
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      height: 95vh; } }
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    .header {
+      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8)), url(../images/hero.jpg); } }
   @media (max-width: 37.5em) {
     .header {
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
