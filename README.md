@@ -1,8 +1,32 @@
 # Natours
 
-## npm install
+## Purpose
 
-This project is build for imporoving my CSS and SASS skills
+This project is build for improving my CSS and SASS skills
+
+## Some Screenshots
+
+```
+I hope this will give some idea about the web page...
+```
+
+![head](scs/head.png)
+
+![head](scs/navigation.png)
+
+![main1](scs/main1.png)
+
+![main2](scs/main2.png)
+
+![cart](scs/cart.png)
+
+![cart](scs/popup.png)
+
+![feedback](scs/feedback.png)
+
+![form](scs/form.png)
+
+![footer](scs/footer.png)
 
 ### Installing
 
@@ -17,9 +41,9 @@ And repeat
 ```
 until finished
 ```
-npm intall node-sass --save-dev
+npm install node-sass --save-dev
 
 ## Authors
 
-* **Furkan Özbek** - *Back End Developer* - [afozbek](https://github.com/afozbek)
+* **Furkan Özbek** - *Computer Engineering Student* - [afozbek](https://github.com/afozbek)
 
