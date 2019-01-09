@@ -15,6 +15,7 @@
         text-align: center;
         cursor: pointer;
 
+
         @include respond(tablet-port) {
             top: 4rem;
             right: 4rem;
@@ -47,7 +48,8 @@
     }
     &__nav { 
         height: 100vh; //viewport height;
-        position: fixed;
+        position: fixed; //before fixed
+        
         top:0;
         left: 0;
         z-index: 1500;
