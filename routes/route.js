@@ -1,9 +1,11 @@
 
 const express = require('express');
 const router = express.Router();
+const main = require('../controllers/main');
 
-router.get('/', (req, res, next) => {
-    res.render('index');
-});
+
+router.get('/', main.getIndex);
+//if not find any specific route which is 404
+
 
 module.exports = router;
