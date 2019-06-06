@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d48736a0-8b41-4023-96f3-925078a0dbc8/deploy-status)](https://app.netlify.com/sites/afozbek-natours/deploys)
+
 # Natours
 
 ## Purpose
